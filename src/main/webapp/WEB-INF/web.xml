@@ -1,0 +1,1 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0"><session-config><cookie-config><http-only>true</http-only></cookie-config></session-config></web-app>
