@@ -1,0 +1,7 @@
+/* admin.html – role assignment and student record editor */
+.role-select { max-width: 150px; padding: 8px 10px; }
+.role-cell { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+tr.pending-row { background: rgba(251, 113, 133, .06); box-shadow: inset 3px 0 0 var(--danger); }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.toolbar .input { max-width: 320px; }
+#stuForm .field label { text-transform: none; }

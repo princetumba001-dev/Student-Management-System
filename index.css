@@ -1,0 +1,25 @@
+/* index.html – landing page */
+.hero { padding: 90px 0 70px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+.hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 5.4vw, 4.3rem); line-height: 1.05; margin-bottom: 18px; letter-spacing: -.02em; }
+.hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 28px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); font-size: .82rem; font-weight: 600; margin-bottom: 20px; }
+.eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); animation: ping 1.8s infinite; }
+@keyframes ping { to { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); } }
+.caret { display: inline-block; width: 3px; height: 1em; background: var(--accent); margin-left: 3px; vertical-align: -.1em; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero-visual { position: relative; height: 420px; perspective: 900px; }
+.float-card { position: absolute; padding: 18px; border-radius: 20px; background: rgba(15, 24, 44, .82); border: 1px solid var(--line); backdrop-filter: blur(16px); box-shadow: var(--shadow); animation: floaty 7s ease-in-out infinite; }
+.float-card.f1 { top: 0; left: 4%; width: 270px; }
+.float-card.f2 { top: 150px; right: 0; width: 250px; animation-delay: -2.5s; }
+.float-card.f3 { bottom: 0; left: 14%; width: 290px; animation-delay: -4.5s; }
+@keyframes floaty { 50% { transform: translateY(-18px) rotate(.6deg); } }
+.feature-icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 14px; background: linear-gradient(135deg, rgba(45, 212, 191, .2), rgba(251, 191, 36, .15)); border: 1px solid var(--line); }
+.steps { counter-reset: s; }
+.step { position: relative; padding-left: 60px; margin-bottom: 26px; }
+.step::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: 0; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04110f; }
+.footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); text-align: center; font-size: .9rem; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+}

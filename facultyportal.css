@@ -1,0 +1,7 @@
+/* facultyportal.html – student cards and toolbar */
+.s-card { cursor: pointer; display: flex; flex-direction: column; gap: 12px; }
+.s-card:hover { transform: translateY(-5px); }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.toolbar .filters { display: flex; gap: 12px; flex: 1; min-width: 260px; flex-wrap: wrap; }
+.toolbar .filters .input { width: auto; flex: 1 1 160px; max-width: 360px; }
+tbody tr[data-id] { cursor: pointer; }
