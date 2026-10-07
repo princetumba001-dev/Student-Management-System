@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faculty Portal – CampusHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/facultyportal.css" />
+</head>
+<body>
+  <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <canvas id="bg"></canvas>
+
+  <header class="nav">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-mark">C</span> CampusHub</a>
+      <div class="row">
+        <span class="badge faculty">Faculty</span>
+        <span class="muted small" id="who"></span>
+        <button class="btn btn-sm" id="logout">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head reveal">
+      <p class="muted small">Faculty dashboard</p>
+      <h1>All students</h1>
+    </div>
+
+    <section class="grid cols-3 section">
+      <div class="card stat reveal"><span class="num" id="cTotal">0</span><span class="label">Total students</span></div>
+      <div class="card stat reveal"><span class="num" id="cDepts">0</span><span class="label">Departments</span></div>
+      <div class="card stat reveal"><span class="num"><span id="cAtt">0</span>%</span><span class="label">Average attendance</span></div>
+    </section>
+
+    <section class="section">
+      <div class="toolbar">
+        <div class="filters">
+          <input class="input" id="search" placeholder="🔍  Search by name, roll no or email" />
+          <select class="input" id="dept"><option value="">All departments</option></select>
+          <select class="input" id="sort">
+            <option value="name">Sort: Name</option>
+            <option value="rollNo">Sort: Roll no</option>
+            <option value="attendance">Sort: Attendance</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="tabs" id="viewTabs">
+            <button class="tab active" data-view="cards">Cards</button>
+            <button class="tab" data-view="table">Table</button>
+          </div>
+          <button class="btn btn-sm" id="exportCsv">⬇ Export CSV</button>
+        </div>
+      </div>
+      <div id="list"></div>
+    </section>
+  </main>
+
+  <div class="modal-back" id="modalBack">
+    <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script type="module" src="js/faculty.js"></script>
+</body>
+</html>

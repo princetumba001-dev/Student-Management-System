@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Console – CampusHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <canvas id="bg"></canvas>
+
+  <header class="nav">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-mark">C</span> CampusHub</a>
+      <div class="row">
+        <span class="badge admin">Admin</span>
+        <span class="muted small" id="who"></span>
+        <button class="btn btn-sm" id="logout">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head reveal">
+      <p class="muted small">Admin console</p>
+      <h1>Manage roles &amp; students</h1>
+    </div>
+
+    <section class="grid cols-4 section">
+      <div class="card stat reveal"><span class="num" id="cUsers">0</span><span class="label">Accounts</span></div>
+      <div class="card stat reveal"><span class="num" id="cPending">0</span><span class="label">Awaiting a role</span></div>
+      <div class="card stat reveal"><span class="num" id="cStudents">0</span><span class="label">Student records</span></div>
+      <div class="card stat reveal"><span class="num" id="cFaculty">0</span><span class="label">Faculty</span></div>
+    </section>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="users">Users &amp; roles</button>
+      <button class="tab" data-tab="students">Student records</button>
+    </div>
+
+    <!-- users -->
+    <section class="section" id="tab-users">
+      <div class="toolbar">
+        <input class="input" id="userSearch" placeholder="🔍  Search users" />
+        <select class="input" id="roleFilter">
+          <option value="">All roles</option><option value="pending">Pending</option>
+          <option value="student">Student</option><option value="faculty">Faculty</option><option value="admin">Admin</option>
+        </select>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>User</th><th>Requested</th><th>Current role</th><th>Assign role</th></tr></thead>
+        <tbody id="userBody"></tbody>
+      </table></div>
+    </section>
+
+    <!-- students -->
+    <section class="section hidden" id="tab-students">
+      <div class="toolbar">
+        <input class="input" id="stuSearch" placeholder="🔍  Search students" />
+        <button class="btn btn-primary btn-sm" id="addStudent">＋ Add / edit record</button>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Student</th><th>Roll no</th><th>Department</th><th>Year / Sem</th><th>Attendance</th><th></th></tr></thead>
+        <tbody id="stuBody"></tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <div class="modal-back" id="modalBack">
+    <form class="modal" id="stuForm" novalidate>
+      <div class="row between" style="margin-bottom:16px">
+        <h2 style="font-family:var(--display)" id="formTitle">Student record</h2>
+        <button type="button" class="btn btn-sm" id="closeForm">✕</button>
+      </div>
+      <div class="field"><label for="fUser">Student account</label><select class="input" id="fUser" required></select></div>
+      <div class="grid cols-2">
+        <div class="field"><label for="fRoll">Roll number</label><input class="input" id="fRoll" maxlength="30" /></div>
+        <div class="field"><label for="fDept">Department</label><input class="input" id="fDept" maxlength="40" placeholder="CSE" /></div>
+        <div class="field"><label for="fYear">Year</label><input class="input" id="fYear" maxlength="10" placeholder="2" /></div>
+        <div class="field"><label for="fSem">Semester</label><input class="input" id="fSem" maxlength="10" placeholder="3" /></div>
+        <div class="field"><label for="fPhone">Phone</label><input class="input" id="fPhone" maxlength="20" /></div>
+        <div class="field"><label for="fAtt">Attendance %</label><input class="input" id="fAtt" type="number" min="0" max="100" /></div>
+      </div>
+      <div class="field"><label for="fSubjects">Subjects – one per line: Code | Name | Credits | Marks % | Faculty</label>
+        <textarea class="input" id="fSubjects" placeholder="CS201 | Data Structures | 4 | 82 | Dr. Rao"></textarea></div>
+      <div class="field"><label for="fClasses">Classes – one per line: Subject | Day | Time | Room | Faculty</label>
+        <textarea class="input" id="fClasses" placeholder="Data Structures | Mon | 09:00-10:00 | B-204 | Dr. Rao"></textarea></div>
+      <div class="row" style="justify-content:flex-end"><button type="button" class="btn" id="cancelForm">Cancel</button><button class="btn btn-primary" id="saveForm">Save record</button></div>
+    </form>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CampusHub – Student Management Portal</title>
+  <meta name="description" content="One place for student details, classes, subjects and an AI study assistant." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <canvas id="bg"></canvas>
+
+  <header class="nav">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-mark">C</span> CampusHub</a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#portals">Portals</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a href="login.html" class="btn btn-primary btn-sm">Sign in →</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow reveal"><i></i> Live &amp; secured by Firebase</span>
+        <h1 class="reveal">Every student detail,<br /><span class="gradient-text" id="type"></span><span class="caret"></span></h1>
+        <p class="lead reveal">CampusHub keeps student records, classes and subjects in one real-time portal – with separate dashboards for students, faculty and admins, and an AI assistant that answers anything.</p>
+        <div class="row reveal">
+          <a href="login.html" class="btn btn-primary">Get started</a>
+          <a href="#features" class="btn">Explore features</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-card f1 tilt">
+          <div class="row"><div class="avatar">AR</div><div><strong>Student profile</strong><div class="muted small">Classes · Subjects · Attendance</div></div></div>
+          <div class="bar" style="margin-top:14px"><i style="width:88%"></i></div>
+        </div>
+        <div class="float-card f2 tilt">
+          <strong>🤖 AI Assistant</strong>
+          <div class="muted small" style="margin-top:6px">“Explain recursion in simple words and quiz me.”</div>
+          <div class="typing" style="margin-top:8px"><i></i><i></i><i></i></div>
+        </div>
+        <div class="float-card f3 tilt">
+          <strong>Faculty view</strong>
+          <div class="muted small" style="margin:4px 0 10px">Search &amp; filter every student</div>
+          <div class="row"><span class="badge student">CSE</span><span class="badge faculty">ECE</span><span class="badge admin">MECH</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid cols-3 reveal" style="margin-bottom:60px">
+      <div class="card stat"><span class="num" data-count="3">0</span><span class="label">Role-based portals</span></div>
+      <div class="card stat"><span class="num"><span data-count="24">0</span>/7</span><span class="label">AI assistant availability</span></div>
+      <div class="card stat"><span class="num" data-count="1">0</span><span class="label">Login for everything</span></div>
+    </section>
+
+    <section id="features" class="section">
+      <h2 class="reveal" style="font-size:2rem">Everything the campus needs</h2>
+      <div class="grid cols-3" style="margin-top:20px">
+        <article class="card tilt reveal"><div class="feature-icon">🎓</div><h3>Student records</h3><p class="muted">Roll number, department, year, semester and contact details – stored in Firestore and synced in real time.</p></article>
+        <article class="card tilt reveal"><div class="feature-icon">📅</div><h3>Classes &amp; subjects</h3><p class="muted">Students see today’s timetable, credits, marks and attendance the moment an admin updates them.</p></article>
+        <article class="card tilt reveal"><div class="feature-icon">🤖</div><h3>AI chatbot</h3><p class="muted">Ask anything – homework, concepts, career advice. Answers stream live from our secure backend.</p></article>
+        <article class="card tilt reveal"><div class="feature-icon">🔐</div><h3>Firebase login</h3><p class="muted">Email &amp; password sign-in with roles enforced by Firestore security rules, not just the UI.</p></article>
+        <article class="card tilt reveal"><div class="feature-icon">🧑‍🏫</div><h3>Faculty directory</h3><p class="muted">Search, filter and export every student in seconds with a clean, animated dashboard.</p></article>
+        <article class="card tilt reveal"><div class="feature-icon">🛡️</div><h3>Admin control</h3><p class="muted">Approve sign-ups, assign student / faculty / admin roles and edit student data in one place.</p></article>
+      </div>
+    </section>
+
+    <section id="portals" class="section">
+      <h2 class="reveal" style="font-size:2rem">Pick your portal</h2>
+      <div class="grid cols-3" style="margin-top:20px">
+        <a href="login.html" class="card tilt reveal"><span class="badge student">Student</span><h3 style="margin-top:12px">Student portal</h3><p class="muted">Your details, classes, subjects and the AI assistant.</p></a>
+        <a href="login.html" class="card tilt reveal"><span class="badge faculty">Faculty</span><h3 style="margin-top:12px">Faculty portal</h3><p class="muted">Browse and search every student record.</p></a>
+        <a href="login.html" class="card tilt reveal"><span class="badge admin">Admin</span><h3 style="margin-top:12px">Admin console</h3><p class="muted">Assign roles and manage student data.</p></a>
+      </div>
+    </section>
+
+    <section id="how" class="section steps">
+      <h2 class="reveal" style="font-size:2rem;margin-bottom:24px">How it works</h2>
+      <div class="step reveal"><h3>Create your account</h3><p class="muted">Sign up as a student or faculty member with your email.</p></div>
+      <div class="step reveal"><h3>Admin assigns your role</h3><p class="muted">Your account stays “pending” until an admin approves it – nobody can promote themselves.</p></div>
+      <div class="step reveal"><h3>Your portal opens</h3><p class="muted">Sign in and you land on the right dashboard automatically.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="yr"></span> CampusHub · Built with Firebase &amp; Node.js</footer>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

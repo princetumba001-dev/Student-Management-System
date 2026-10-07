@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Portal – CampusHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/studentportal.css" />
+</head>
+<body>
+  <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <canvas id="bg"></canvas>
+
+  <header class="nav">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-mark">C</span> CampusHub</a>
+      <div class="row">
+        <span class="badge student">Student</span>
+        <span class="muted small" id="who"></span>
+        <button class="btn btn-sm" id="logout">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head reveal">
+      <p class="muted small" id="greeting"></p>
+      <h1 id="title">Loading your portal…</h1>
+    </div>
+
+    <!-- shown when admin has not created the student record yet -->
+    <div id="noRecord" class="card hidden section">
+      <h3>Your student record isn't set up yet</h3>
+      <p class="muted">An admin has approved your account but hasn't added your details (roll number, classes, subjects). Please check back soon. The AI assistant below still works.</p>
+    </div>
+
+    <div id="content">
+      <section class="grid cols-3 section" id="top">
+        <div class="card reveal">
+          <div class="row" style="margin-bottom:16px">
+            <div class="avatar lg" id="avatar">…</div>
+            <div><h3 id="sName"><span class="skeleton" style="display:block;width:150px"></span></h3><span class="muted small" id="sRoll"></span></div>
+          </div>
+          <dl class="kv" id="details"></dl>
+        </div>
+
+        <div class="card reveal" style="display:flex;align-items:center;gap:20px">
+          <div class="ring">
+            <svg viewBox="0 0 120 120" width="130" height="130">
+              <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf" /><stop offset="1" stop-color="#fbbf24" /></linearGradient></defs>
+              <circle class="track" cx="60" cy="60" r="52" />
+              <circle class="val" id="ringVal" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="center"><span id="attNum">0</span>%</div>
+          </div>
+          <div><h3>Attendance</h3><p class="muted small" id="attNote">Keep it above 75%.</p></div>
+        </div>
+
+        <div class="card reveal grid" style="gap:14px;align-content:center">
+          <div class="stat"><span class="num" id="statSubjects">0</span><span class="label">Subjects this semester</span></div>
+          <div class="stat"><span class="num" id="statCredits">0</span><span class="label">Total credits</span></div>
+          <div class="stat"><span class="num"><span id="statAvg">0</span>%</span><span class="label">Average marks</span></div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="row between" style="margin-bottom:14px">
+          <h2 style="font-family:var(--display);font-size:1.3rem">My classes</h2>
+          <div class="row" id="dayChips"></div>
+        </div>
+        <div class="card" id="classList"></div>
+      </section>
+
+      <section class="section reveal">
+        <h2 style="font-family:var(--display);font-size:1.3rem;margin-bottom:14px">My subjects</h2>
+        <div class="grid cols-3" id="subjectGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- AI chatbot -->
+  <button class="chat-fab" id="chatFab" aria-label="Open AI assistant">🤖</button>
+  <section class="chat-panel" id="chatPanel" aria-label="AI assistant">
+    <div class="chat-head">
+      <div class="bot">🤖</div>
+      <div style="flex:1"><strong>Campus AI</strong><div class="muted small">Ask me anything</div></div>
+      <button class="btn btn-sm" id="chatClear" title="Clear chat">Clear</button>
+      <button class="btn btn-sm" id="chatClose" aria-label="Close">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chips" id="chips"></div>
+    <form class="chat-form" id="chatForm">
+      <textarea id="chatInput" rows="1" placeholder="Type your question…" maxlength="2000"></textarea>
+      <button id="chatSend" aria-label="Send">➤</button>
+    </form>
+  </section>
+
+  <script type="module" src="js/student.js"></script>
+</body>
+</html>

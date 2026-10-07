@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in – CampusHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <canvas id="bg"></canvas>
+
+  <div class="auth-wrap">
+    <section class="auth-brand">
+      <a href="index.html" class="logo"><span class="logo-mark">C</span> CampusHub</a>
+      <h1>Welcome back to your <span class="gradient-text">campus</span>.</h1>
+      <p class="muted" style="max-width:420px">Students, faculty and admins all sign in here. After login you are taken to the portal that matches your role.</p>
+      <div class="orbit"><span></span><span></span><span></span><b></b></div>
+    </section>
+
+    <section class="auth-side">
+      <div class="card auth-card" id="card">
+
+        <!-- login / signup -->
+        <div id="formView">
+          <div class="tabs" style="width:100%;margin-bottom:22px">
+            <button class="tab active" data-mode="signin" style="flex:1">Sign in</button>
+            <button class="tab" data-mode="signup" style="flex:1">Create account</button>
+          </div>
+
+          <div id="msg"></div>
+
+          <form id="form" novalidate>
+            <div class="field hidden" data-signup>
+              <label for="name">Full name</label>
+              <input class="input" id="name" autocomplete="name" placeholder="Aarav Reddy" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" id="email" type="email" autocomplete="email" placeholder="you@college.edu" required />
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="pw-wrap">
+                <input class="input" id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" required />
+                <button type="button" id="togglePw" aria-label="Show password">👁</button>
+              </div>
+            </div>
+            <div class="field hidden" data-signup>
+              <label for="role">I am a</label>
+              <select class="input" id="role">
+                <option value="student">Student</option>
+                <option value="faculty">Faculty member</option>
+              </select>
+              <span class="muted small">An admin must approve your account before the portal opens.</span>
+            </div>
+            <button class="btn btn-primary" id="submit" style="width:100%;margin-top:6px">Sign in</button>
+            <p style="text-align:center;margin-top:16px" class="small"><a href="#" id="forgot" class="muted">Forgot password?</a></p>
+          </form>
+        </div>
+
+        <!-- waiting for admin -->
+        <div id="pendingView" class="hidden" style="text-align:center">
+          <div style="font-size:3rem">⏳</div>
+          <h3 style="margin:10px 0">Waiting for approval</h3>
+          <p class="muted" id="pendingText">Your account has been created. An admin needs to assign your role before you can enter.</p>
+          <button class="btn" id="pendingOut" style="margin-top:20px">Sign out</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
